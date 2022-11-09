@@ -1,1 +1,1 @@
-# CodeWars[https://www.codewars.com/]
+[# CodeWars](https://www.codewars.com/)
