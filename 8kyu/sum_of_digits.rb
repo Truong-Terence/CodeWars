@@ -7,5 +7,5 @@ def digital_root(n)
   n
 end
 
-# Shorter solution
+# Shorter solution from CW
 # n < 10 ? n : digital_root(n.digits.sum)
