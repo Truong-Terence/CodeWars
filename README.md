@@ -1,1 +1,2 @@
-<img src="assets/images/codewars.jpg" height="200"> # [CodeWars](https://www.codewars.com/)
+# [CodeWars](https://www.codewars.com/)
+<img src="assets/images/codewars.jpg" height="200">
