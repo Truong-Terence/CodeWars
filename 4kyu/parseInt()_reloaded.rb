@@ -31,29 +31,23 @@ def parse_int(string)
     'million'   => 1000000,
     'thousand'  => 1000,
     'hundred'   => 100
-    }
+  }
 
   string_array = string.gsub(/-/, ' ').gsub(/\sand\s/, ' ').split
-  puts "str : #{string_array}"
   total = 0
   string_array.each_with_index do |num, i|
-    total += str_to_num[string_array[i]].to_i
     if num == 'hundred' || num == 'thousand' || num == 'million'
-      a = str_to_num[string_array[i - 1]]
-      p "a:  #{a}"
-      b = str_to_num[string_array[i]]
-      p "b: #{b}"
-      if string_array[i] == 'hundred' && string_array[i + 1] == 'thousand'
-        c = str_to_num[string_array[i + 1]]
-        p "c: #{c}"
-        tens = a * b * c
-        total += tens - a - b - c
+      if string_array[i] == 'thousand' && string_array[i - 1] == 'hundred'
+        total *= str_to_num[num]
+      elsif string_array[i] == 'hundred'
+        total += str_to_num[num] * str_to_num[string_array[i - 1]] - str_to_num[string_array[i - 1]]
       else
-        tens = a * b
-        total += tens - a - b
+        total *= str_to_num[num]
       end
+    else
+      total += str_to_num[num].to_i
     end
+    p "total: #{total}"
   end
-  p "total: #{total}"
-  "for    200024"
+  total
 end
